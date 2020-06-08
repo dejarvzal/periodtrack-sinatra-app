@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     end
    
    post '/users' do
-        @user = User.create(params)
-        #recieves input data from user, create the user, logs them in.
+        # user = User.create(params)
+        user = User.create(name: params[:name], email: params[:email], password: params[:password])
         session[:user_id] = user.id
         redirect "/users/#{user.id}"
    end

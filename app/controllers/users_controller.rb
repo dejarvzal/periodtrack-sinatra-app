@@ -20,5 +20,20 @@ class UsersController < ApplicationController
         # binding.pry
         "user's show page!"
     end
-    
+
+    get '/signup' do
+        #get signup route that renders signup form
+        erb :"/users/signup"
+    end
+   
+
+   post '/signup' do
+        #recieves input data from user, create the user, logs them in.
+        redirect "/users/#{user.id}" #or redirect '/login'
+   end
+   
+   get '/logout' do
+    #get logout route that clears the session hash
+   end
+     
 end

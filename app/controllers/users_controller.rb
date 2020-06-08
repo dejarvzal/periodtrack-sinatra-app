@@ -17,8 +17,8 @@ class UsersController < ApplicationController
     end
 
     get "/users/:id" do
+        # binding.pry
         "user's show page!"
     end
-
-
+    
 end

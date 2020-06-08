@@ -1,5 +1,8 @@
 <h1>All Periods</h1>
 
 <% @periods.each do |period| %> 
+<h3><%= period.user.name %></h3>
 <h4><a href="/periods/<%= period.id %>"><%=period.month%> <%=period.start_day%></a></h4>
+<p><%= period.note %></p>
+<h5>Created: <%=period.created_at %></h5><hr><br>
 <%end%>

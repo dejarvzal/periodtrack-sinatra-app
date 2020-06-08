@@ -6,34 +6,32 @@ class UsersController < ApplicationController
 
     post "/login" do
         user = User.find_by(email: params[:email])
-        # binding.pry
-        if user && user.authenticate(params[:password]) #log them in 
-            # binding.pry
-        session[:user_id] = user.id  #redirect to profile
+        if user && user.authenticate(params[:password]) 
+        session[:user_id] = user.id
         redirect "/users/#{user.id}"
-        else #show error message
+        else 
            redirect '/login'
         end
     end
 
     get "/users/:id" do
-        # binding.pry
-        "user's show page!"
+        erb :"/users/show"
     end
 
     get '/signup' do
-        #get signup route that renders signup form
         erb :"/users/signup"
     end
    
-
-   post '/signup' do
+   post '/users' do
+        @user = User.create(params)
         #recieves input data from user, create the user, logs them in.
-        redirect "/users/#{user.id}" #or redirect '/login'
+        session[:user_id] = user.id
+        redirect "/users/#{user.id}"
    end
    
    get '/logout' do
-    #get logout route that clears the session hash
+    session.clear
+    redirect '/'
    end
      
 end

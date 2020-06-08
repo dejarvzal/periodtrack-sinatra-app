@@ -14,7 +14,16 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+
     <div class="wrapper">
+
+    <div class="nav">
+      <%if logged_in? %>
+      <a href="/">All Periods</a>
+      <a href="/">Add a Period</a>
+      <a href="/logout">Log Out</a>
+      <% end %>
+    </div>
 
         <%= yield %>
 

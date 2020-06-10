@@ -7,10 +7,12 @@ class UsersController < ApplicationController
     post "/login" do
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password]) 
-        session[:user_id] = user.id
-        redirect "/users/#{user.id}"
+          session[:user_id] = user.id
+          flash[:message] = "Welcome back #{@user.name}"
+          redirect "/users/#{user.id}"
         else 
-           redirect '/login'
+          flash[:error] = "Your credentials were not correct. Please try again!"
+          redirect '/login'
         end
     end
 

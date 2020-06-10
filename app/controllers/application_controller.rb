@@ -6,8 +6,9 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions  #enable session hash
-    set :session_secret, "super_secret_session"
     #set session secret for extra layer of security
+    set :session_secret, "super_secret_session" 
+    register Sinatra::Flash
   end
 
   get "/" do

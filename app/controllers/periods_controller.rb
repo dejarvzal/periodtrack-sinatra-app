@@ -27,24 +27,22 @@ class PeriodsController < ApplicationController
     get '/periods/:id/edit' do
         # binding.pry
         @period = Period.find_by(id: params[:id])
-    
-       erb :"/periods/edit"
+        erb :"/periods/edit"
     end
 
     patch '/periods/:id/edit' do
         #should month and day stay the same, update the period notes only?
         @period = Period.find(params[:id])
-        # binding.pry
         @period.update(month: params[:month], start_day: params[:start_day], note: params[:note], user_id: current_user.id)
-        # user_id: current_user.id
-        # @period.save
-        
         redirect "/periods/#{@period.id}"
     end
-    #render an edit form
-    #patch method/route that will update the post
 
     #DELETE
+    delete '/period/:id' do
+        @period = Period.find(params[:id])
+        @period.destroy
+        redirect '/periods'
+    end
 
 
 end

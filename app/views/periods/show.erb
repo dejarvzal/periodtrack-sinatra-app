@@ -5,3 +5,9 @@
 <p><strong>Notes: </strong><%= @period.note %></p>
 <h5>Created: <%=@period.created_at %></h5><hr><br>
 <br><a href="/periods/<%= @period.id %>/edit">Edit Period</a><br><br>
+
+<form class ="" action="/periods/<%= @period.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete this Period">
+
+</form>

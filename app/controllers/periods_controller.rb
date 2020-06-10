@@ -38,7 +38,7 @@ class PeriodsController < ApplicationController
     end
 
     #DELETE
-    delete '/period/:id' do
+    delete '/periods/:id' do
         @period = Period.find(params[:id])
         @period.destroy
         redirect '/periods'

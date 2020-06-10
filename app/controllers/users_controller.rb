@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     get "/login" do
-    erb :login
+        erb :login
     end
 
     post "/login" do
@@ -19,8 +19,6 @@ class UsersController < ApplicationController
     end
    
    post '/users' do
-        # user = User.create(params)
-        binding.pry
         user = User.create(name: params[:name], email: params[:email], password: params[:password])
         session[:user_id] = user.id
         redirect "/users/#{user.id}"
@@ -30,7 +28,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         erb :"/users/show"
     end
-
      
    get '/logout' do
     session.clear

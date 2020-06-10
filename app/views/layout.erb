@@ -17,7 +17,11 @@
 
     <div class="wrapper">
 
-    <div class="nav">
+      <% if flash[:error] %>
+      <h3 style="color:red"><%= flash[:error]%> </h3>
+      <% end %>
+
+      <div class="nav">
       <%if logged_in? %>
       <a href="/periods">All Periods</a>
       <a href="/periods/new">Add a Period</a>
@@ -25,6 +29,10 @@
       <a href="/">Home</a>
       <% end %>
     </div>
+
+      <% if flash[:message] %>
+      <br><h3 style="color:green"><%= flash[:message]%> </h3>
+      <% end %>
 
         <%= yield %>
 

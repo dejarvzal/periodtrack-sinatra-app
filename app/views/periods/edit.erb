@@ -9,13 +9,13 @@
 <input id="hidden" type="hidden" name="_method" value="PATCH">
 
     <label for="month">Change Month:</label>
-    <input type="string" name="month" id="month" value="">
+    <input type="string" name="month" id="month" value=" <%=@period.month %>">
 
     <label for="start_day">Change First Day of Period:</label>
-    <input type="integer" name="start_day" id="start_day" value="">
+    <input type="integer" name="start_day" id="start_day" value="<%=@period.start_day %>">
     <br><br>
     <label for="note">Add a new Note:</label>
-    <input type="text" name="note" id="note" value="" >
+    <input type="text" name="note" id="note" value="<%=@period.note %>" >
     <br><br>
     <input type="submit" name="" value="Save Changes">
 

@@ -25,12 +25,17 @@ class PeriodsController < ApplicationController
     #UPDATE
     #edit button that takes to the form to get the id
     get '/periods/:id/edit' do
-       
+        @period = Period.find_by(id: params[:id])
        erb :"/periods/edit"
     end
 
-    patch '/periods/:id' do
-
+    patch '/periods/:id/edit' do
+        #month and day stays the same, update the period notes only
+        # binding.pry
+        @period = Period.update(month: params[:month], start_day: params[:start_day], note: params[:note], user_id: current_user.id)
+        #probably should only be able to change the notes, not change the dates.
+        @period.save
+        redirect "/periods"
     end
     #render an edit form
     #patch metod/route that will update the post

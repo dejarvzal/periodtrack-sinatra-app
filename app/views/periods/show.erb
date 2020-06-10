@@ -4,3 +4,4 @@
 <h3><%=@period.user.name %>'s period started on <%=@period.month%> <%=@period.start_day%>.</h3>
 <p><strong>Notes: </strong><%= @period.note %></p>
 <h5>Created: <%=@period.created_at %></h5><hr><br>
+<br><a href="/periods/<%= @period.id %>/edit">Edit Period</a><br><br>

@@ -1,2 +1,23 @@
 
-<h1>  "edit a period here" </h1>
+<br>
+<h2> Edit <%=@period.user.name %>'s <%=@period.month%> <%=@period.start_day%> Period </h2>
+<h3> Current period information</h3>
+<p> <strong>Period start date:</strong> <%=@period.month%> <%=@period.start_day%>.</p>
+<p><strong>Period Notes: </strong><%= @period.note %></p>
+<hr><br>
+<form class="" action="/periods/<%=@period.id%>/edit" method="POST"> 
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+
+    <label for="month">Change Month:</label>
+    <input type="string" name="month" id="month" value="">
+
+    <label for="start_day">Change First Day of Period:</label>
+    <input type="integer" name="start_day" id="start_day" value="">
+    <br><br>
+    <label for="note">Add a new Note:</label>
+    <input type="text" name="note" id="note" value="" >
+    <br><br>
+    <input type="submit" name="" value="Save Changes">
+
+    <br><br><a href="/">Home</a>
+</form>

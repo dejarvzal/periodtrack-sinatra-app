@@ -14,12 +14,11 @@ class PeriodsController < ApplicationController
     post '/periods/new' do
         @period = Period.create(month: params[:month], start_day: params[:start_day], note: params[:note], user_id: current_user.id)
         if @period.save
-            # if params[:month]!= "" && params[:start_day]!= "" && params[:note]!= ""
             flash[:message] = "Period successfully created!"
             redirect "/periods/#{@period.id}"
-            
         else
-            flash[:error] = "Sorry, Period not saved.  Please complete all fields."
+            # binding.pry
+            flash[:error] = "Sorry, Period not saved: #{@period.errors.full_messages.to_sentence}"
             redirect "/periods/new"
         end
     end

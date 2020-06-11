@@ -4,9 +4,12 @@
 <h3><%=@period.user.name %>'s period started on <%=@period.month%> <%=@period.start_day%>.</h3>
 <p><strong>Notes: </strong><%= @period.note %></p>
 <h5>Created: <%=@period.created_at %></h5><hr><br>
+
+<% if authorized_to_edit?(@period)%>
 <br><a href="/periods/<%= @period.id %>/edit">Edit Period</a><br><br>
 
 <form class="" action="/periods/<%= @period.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" name="" value="Delete this Period">
 </form>
+<% end %>

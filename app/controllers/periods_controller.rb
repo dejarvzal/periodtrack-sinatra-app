@@ -8,6 +8,12 @@ class PeriodsController < ApplicationController
 
     #CREATE
     get '/periods/new' do
+        if logged_in?
+           erb :"/periods/new"
+        else
+            flash[:error] = "You must be logged in to create a Period entry!"
+            redirect "/"
+        end
         erb :"/periods/new"
     end
 

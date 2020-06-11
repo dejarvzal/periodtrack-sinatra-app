@@ -29,4 +29,10 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  #authorization helper
+  def authorized_to_edit?(period)
+    period.user == current_user
+  end
+
+
 end

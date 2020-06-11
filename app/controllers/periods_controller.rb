@@ -37,9 +37,13 @@ class PeriodsController < ApplicationController
     #UPDATE
     #edit button that takes to the form to get the id
     get '/periods/:id/edit' do
-        # binding.pry
         @period = Period.find_by(id: params[:id])
-        erb :"/periods/edit"
+        if authorized_to_edit?(@period)
+         erb :"/periods/edit"
+        else
+         flash[:error] = "You do not have the rights to edit this Period!"
+            redirect "/periods"
+        end
     end
 
     patch '/periods/:id/edit' do

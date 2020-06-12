@@ -23,7 +23,13 @@ class UsersController < ApplicationController
    post '/users' do
         user = User.create(name: params[:name], email: params[:email], password: params[:password])
         session[:user_id] = user.id
-        redirect "/users/#{user.id}"
+        if user.save
+            flash[:message] = "You've successfully created your profile!"
+            redirect "/users/#{user.id}"
+        else    
+            flash[:error] = "Sorry, profile not saved: #{user.errors.full_messages.to_sentence}"
+            redirect "/signup"
+        end
    end
 
     get "/users/:id" do

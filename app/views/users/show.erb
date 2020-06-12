@@ -1,5 +1,5 @@
 
-<br><h3>Hi, <%= @user.name %>, you've successfully logged in! </h3>
+<br><h3><%= flash[:message] = "Welcome back #{@user.name}!" %> You've successfully logged in! </h3>
 
 <br>
 <div class="">

@@ -22,3 +22,9 @@ Specs:
  You made the changes in a commit that relate to the commit message
  You don't include changes in a commit that aren't related to the commit message
 
+
+ *Opportunities to improve app at a later time*
+ - Allowing a user to only see their period entries in the Period Index view
+ - Add field on edit view to allow to add end date of period
+ - Add a calculator to show estimated start date of next period (Add 28 days to start_day)
+ - Based on calculation, show estimated start of PMS symptoms

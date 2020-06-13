@@ -2,10 +2,10 @@
 
 Specs:
 
- -[X] Use Sinatra to build the app
-     *-Started by using the Corneal Gem and ensured ApplicationController inherited from Sinatra::Base*
- -[X] Use ActiveRecord for storing information in a database
-     *-Create a seed database and utilized rake:db function*
+ - [X] Use Sinatra to build the app
+     * - Started by using the Corneal Gem and ensured ApplicationController inherited from Sinatra::Base*
+ - [X] Use ActiveRecord for storing information in a database
+     * - Create a seed database and utilized rake:db function*
  - [X] Include more than one model class (e.g. User, Post, Category)
      *-App has 2 models, User and Period*
  - [X] Include at least one has_many relationship on your User model (e.g. User has_many Posts)

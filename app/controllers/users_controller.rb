@@ -28,8 +28,6 @@ class UsersController < ApplicationController
             redirect "/users/#{user.id}"
         else    
             flash[:error] = "Sorry, profile not saved: #{user.errors.full_messages.to_sentence}"
-            #this is listing the error message "password can't be blank" twice!?
-            # binding.pry
             redirect "/signup"
         end
    end

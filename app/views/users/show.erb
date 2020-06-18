@@ -11,4 +11,13 @@
         <li>- Get enough sleep.</li>
       </ul>
     </div>
+<br>
+<h3> Here are your periods:</h3>
+
+<% @user.periods.each do |period| %> 
+<h3><% period.user.name %></h3>
+<h4><a href="/periods/<%= period.id %>"><%=period.month%> <%=period.start_day%></a></h4>
+<p><%= period.note %></p>
+<% end %>
+
 <br><br>Click here to go back to <a href="/logout">Home Page</a>
